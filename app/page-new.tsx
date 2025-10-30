@@ -6,9 +6,8 @@ import { VerificationStep, FeatureCard, PersonaCard, WaitlistForm } from "@/comp
 import { AlertCircle, FileCheck, Shield, Users, BadgeCheck, Building2, Phone, Calendar } from "lucide-react";
 
 export default function Home() {
-  const [waitlistCount] = useState(217); // This would come from your API in reality
+  const [waitlistCount] = useState(1247); // This would come from your API in reality
   const waitlistRef = useRef<HTMLElement>(null);
-  const heroFormRef = useRef<HTMLDivElement>(null);
 
   const handleWaitlistSubmit = async (email: string, reason?: string) => {
     try {
@@ -36,20 +35,12 @@ export default function Home() {
     waitlistRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
-  const scrollToHeroForm = () => {
-    // Scroll to the hero section form
-    const heroSection = document.querySelector('.hero-form');
-    if (heroSection) {
-      heroSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
     <div className="min-h-screen antialiased">
       {/* Hero Section */}
       <section className="min-h-screen w-screen overflow-hidden text-white relative">
         <HeroSection
-          backgroundImage="/hero.png"
+          backgroundImage="/ghana-landscape.jpg"
           logoText="Adomi App"
           navLinks={[
             { href: "/explore", label: "Explore" },
@@ -57,13 +48,17 @@ export default function Home() {
             { href: "/about", label: "About" },
             { href: "/contact", label: "Contact" },
           ]}
+          avatarSrcList={[
+            "https://placehold.co/32x32/a9a9a9/ffffff?text=U",
+            "https://placehold.co/32x32/d3d3d3/ffffff?text=U",
+            "https://placehold.co/32x32/808080/ffffff?text=U",
+          ]}
           userCount={waitlistCount}
-          title="Travel.\nDiscover.\nInvest."
-          description="Adomi App is your go-to app for verified businesses, authentic contacts, and trusted opportunities in Ghana. No more 'my brother knows a guy.'"
-          placeholder="Enter email address"
+          title="Travel, Discover and Invest in Ghana"
+          description="Building Africa's trusted digital gateway, starting with Ghana, empowering travelers and investors through verified trust and connections."
+          placeholder="Enter Email ID"
           ctaText="Join Waitlist"
           onSubmit={handleWaitlistSubmit}
-          onJoinClick={scrollToHeroForm}
           footerVersion=""
         />
       </section>
@@ -72,12 +67,12 @@ export default function Home() {
       <section className="py-32 md:py-40 bg-white">
         <div className="container mx-auto px-6 md:px-12">
           <div className="max-w-3xl mx-auto text-center space-y-8">
-            <div className="text-8xl">⚠️</div>
+            <AlertCircle className="w-12 h-12 mx-auto text-gray-400" />
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-light tracking-tight text-gray-900">We Know the Struggle</h2>
             <p className="text-xl md:text-2xl text-gray-600 leading-relaxed font-light">
               You Google "lawyer in Accra" and get overwhelmed. You ask for recommendations in WhatsApp groups 
               and get ten different answers. You call a government office and the number doesn't work. 
-              You send money to someone and they disappear. We've all been there or have heard the stories. It's exhausting.
+              You send money to someone and they disappear. We've all been there. It's exhausting.
             </p>
           </div>
         </div>
@@ -98,25 +93,25 @@ export default function Home() {
               number="1"
               icon={<FileCheck className="w-8 h-8" />}
               title="They Show Us Proof"
-              description="Businesses are required to upload their details"
+              description="Businesses share their registration papers and licenses with us"
             />
             <VerificationStep
               number="2"
               icon={<Shield className="w-8 h-8" />}
               title="We Check Everything"
-              description="Our team reviews all submitted documents - no shortcuts"
+              description="Our team confirms it's all legit - no shortcuts"
             />
             <VerificationStep
               number="3"
               icon={<Users className="w-8 h-8" />}
-              title="They Get the Badge"
-              description="Only verified registered businesses get our premium badge"
+              title="Real People Review"
+              description="Other users share their honest experiences"
             />
             <VerificationStep
               number="4"
               icon={<BadgeCheck className="w-8 h-8" />}
-              title="Real People Review"
-              description="Adomi App users can rate and review listed businesses"
+              title="They Get the Badge"
+              description="Only the real ones get our verified checkmark"
             />
           </div>
         </div>
@@ -136,16 +131,16 @@ export default function Home() {
             <FeatureCard
               icon={<Building2 className="w-6 h-6" />}
               title="Trusted Businesses"
-              description="Lawyers, Real Estate Agents, Mechanics, Other Contractors - all verified. No more wondering if they're legit."
+              description="Lawyers, real estate agents, contractors, event planners - all verified. No more wondering if they're legit."
             />
             <FeatureCard
               icon={<Phone className="w-6 h-6" />}
               title="Government & Embassy Info"
-              description="Actually working phone numbers and addresses. Updated regularly so you're not calling inoperable lines."
+              description="Actually working phone numbers and addresses. Updated regularly so you're not calling dead lines."
             />
             <FeatureCard
               icon={<Calendar className="w-6 h-6" />}
-              title="Events & Opportunities"
+              title="Events & Properties"
               description="From house hunting to networking events - find opportunities from sources you can actually trust."
             />
           </div>
@@ -178,8 +173,8 @@ export default function Home() {
             <PersonaCard
               name="Akosua"
               role="Local Business Owner"
-              quote="I run a real business, but people are scared to trust local businesses. I want to prove I'm legit."
-              benefit="✓ Stand out with a verified premium badge that shows you're the real deal"
+              quote="I run a real business, but people are scared to trust anyone. I want to prove I'm legit."
+              benefit="✓ Stand out with a verified badge that shows you're the real deal"
             />
           </div>
         </div>
@@ -193,8 +188,8 @@ export default function Home() {
             <p className="text-2xl md:text-3xl lg:text-4xl font-light">People Are Waiting</p>
           </div>
           <p className="text-lg md:text-xl text-white/70 max-w-2xl mx-auto font-light leading-relaxed">
-            Join hundreds of others who are ready to stop guessing and start trusting.<br /> 
-            Be among the first to access Adomi App when we launch.
+            Join thousands who are ready to stop guessing and start trusting. 
+            Be among the first to access Adomi when we launch.
           </p>
           <button 
             onClick={scrollToWaitlist}
@@ -224,9 +219,9 @@ export default function Home() {
       <footer className="py-16 md:py-20 bg-gray-50 border-t border-gray-200">
         <div className="container mx-auto px-6 md:px-12">
           <div className="flex flex-col items-center gap-8">
-            <div className="text-2xl font-bold text-gray-900">Adomi App</div>
+            <div className="text-2xl font-bold text-gray-900">Adomi</div>
             <p className="text-sm text-gray-600 text-center font-light">
-              Bridging Hearts, Homes and Opportunities.
+              Bridging hearts, homes and opportunities
             </p>
             
             {/* Social Media Icons */}
