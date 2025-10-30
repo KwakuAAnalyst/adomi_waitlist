@@ -147,7 +147,7 @@ export default function HeroSection({
           style={{ transform: `translateY(${scrollY * 0.3}px)` }}
         />
         
-        <div className="container mx-auto h-screen flex items-center px-6 md:px-8 relative z-10 pt-24 md:pt-32">
+        <div className="container mx-auto h-screen flex items-center px-6 md:px-8 relative z-10 pt-24 md:pt-42">
           <div 
             className="w-full md:w-1/2 lg:w-2/5"
             style={{ transform: `translateY(${scrollY * -0.2}px)` }}
