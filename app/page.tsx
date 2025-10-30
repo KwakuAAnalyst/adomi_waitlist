@@ -45,7 +45,7 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen antialiased">
+    <div className="antialiased">
       {/* Hero Section */}
       <section className="min-h-screen w-screen overflow-hidden text-white relative">
         <HeroSection
